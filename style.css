@@ -1,9 +1,17 @@
-#puzzle-container {
-    width: 500px;
-    height: 500px;
-    border: 2px solid #000;
-    margin: 20px auto;
-    position: relative;
-    background-image: url('your_image.jpg'); /* Set the background image */
-    background-size: cover;
+.puzzle-piece {
+    float: left;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    user-select: none;
+    cursor: grab;
 }
+
+.puzzle-piece:active {
+    cursor: grabbing;
+}
+
+.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
