@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Jigsaw Puzzle</title>
+    <style>
+        #puzzle-container {
+            background-image: url('${decodeURIComponent(window.location.search.substring(1).split('&')[1].split('=')[1])}');
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
     <div id="puzzle-container"></div>
