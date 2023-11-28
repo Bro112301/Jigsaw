@@ -1,36 +1,29 @@
-const puzzleContainer = document.getElementById('puzzle-container');
-let numRows = 3;
-let numCols = 3;
-
-// Function to load user-uploaded image
-function loadImage() {
-    const imageInput = document.getElementById('imageInput');
-    const file = imageInput.files[0];
-
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            puzzleContainer.style.backgroundImage = `url('${e.target.result}')`;
-        };
-        reader.readAsDataURL(file);
-    }
-}
-
-// Function to create custom puzzle
+// Function to create custom puzzle and open a new page
 function createCustomPuzzle() {
     numRows = parseInt(document.getElementById('rows').value);
     numCols = parseInt(document.getElementById('cols').value);
 
-    puzzleContainer.innerHTML = ''; // Clear existing puzzle
-    puzzleContainer.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
-    puzzleContainer.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
+    const puzzleState = generatePuzzleState();
+    const puzzleLink = `puzzle.html?state=${puzzleState.join(',')}`;
 
-    createPuzzle();
+    // Open a new window or tab with the puzzle
+    window.open(puzzleLink, '_blank');
 }
 
-// Function to create puzzle pieces
-function createPuzzle() {
-    // ... (same as before)
-}
+// Function to generate puzzle state
+function generatePuzzleState() {
+    const puzzleState = [];
+    const totalPieces = numRows * numCols;
 
-// ... (same as before)
+    for (let i = 0; i < totalPieces; i++) {
+        puzzleState.push(i);
+    }
+
+    // Shuffle the puzzle state
+    for (let i = totalPieces - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [puzzleState[i], puzzleState[j]] = [puzzleState[j], puzzleState[i]];
+    }
+
+    return puzzleState;
+}
