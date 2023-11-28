@@ -8,6 +8,12 @@
 </head>
 <body>
     <div id="controls">
+        <input type="file" id="imageInput" accept="image/*" onchange="loadImage()">
+        <label for="rows">Rows:</label>
+        <input type="number" id="rows" value="3">
+        <label for="cols">Columns:</label>
+        <input type="number" id="cols" value="3">
+        <button onclick="createCustomPuzzle()">Create Custom Puzzle</button>
         <button onclick="shufflePuzzle()">Shuffle</button>
         <button onclick="resetPuzzle()">Reset</button>
         <button onclick="savePuzzle()">Save</button>
