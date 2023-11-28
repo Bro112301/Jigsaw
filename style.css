@@ -1,17 +1,22 @@
-.puzzle-piece {
-    float: left;
-    border: 1px solid #000;
-    box-sizing: border-box;
-    user-select: none;
-    cursor: grab;
+/* ... (same as before) */
+
+#controls {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.puzzle-piece:active {
-    cursor: grabbing;
+#controls input,
+#controls button {
+    margin: 0 10px;
 }
 
-.dragging {
-    opacity: 0.5;
-    cursor: grabbing;
+#imageInput {
+    display: none;
 }
+
+#controls label {
+    margin-right: 5px;
+    font-size: 14px;
+}
+
 
