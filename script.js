@@ -1,4 +1,3 @@
-// Function to create custom puzzle and open a new page
 function createCustomPuzzle() {
     const imageInput = document.getElementById('imageInput');
     const file = imageInput.files[0];
@@ -10,8 +9,12 @@ function createCustomPuzzle() {
 
     const reader = new FileReader();
     reader.onload = function (e) {
+        console.log("Image loaded successfully:", e.target.result);
+
         const puzzleState = generatePuzzleState();
         const puzzleLink = `puzzle.html?state=${puzzleState.join(',')}&image=${encodeURIComponent(e.target.result)}`;
+
+        console.log("Puzzle link:", puzzleLink);
 
         // Open a new window or tab with the puzzle
         window.open(puzzleLink, '_blank');
